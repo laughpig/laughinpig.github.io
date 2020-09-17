@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HTML CSS完成，JS製作中  -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上好家具行</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        #background {
+            width: 100%;
+            min-height: 100vh;
+            background-color: rgb(255, 217, 0);
+            display: flex;
+        }
+
+        #nav {
+            width: 30vw;
+            background-color: yellow;
+
+
+        }
+
+        #content {
+            width: 70vw;
+            background-color: rgb(255, 238, 200);
+        }
+
+        .container {
+            width: calc(100% - 100px);
+            height: 100%;
+
+            background-color: rgb(187, 187, 114);
+            margin: 0 auto;
+            display: flex;
+
+
+
+
+
+        }
+
+        #btnGroup {
+            width: 100%;
+            height: 50%;
+            margin: auto 0;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+
+        }
+
+        .btn {
+            text-align: center;
+
+            width: 100%;
+            height: 120px;
+            line-height: 120px;
+            background-color: rgb(98, 248, 98);
+            font-size: xxx-large;
+
+        }
+
+        .card {
+            width: 280px;
+            height: 350px;
+            background-color: transparent;
+
+        }
+
+        #content .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-around;
+            justify-content: space-around;
+        }
+
+        .productPhoto {
+            width: 100%;
+            height: 215px;
+            background-size: cover;
+            position: relative;
+
+        }
+
+        .productName {
+            width: 100%;
+            height: 67.5px;
+            font-size: xx-large;
+            text-align: center;
+            line-height: 60px;
+            background-color: turquoise;
+        }
+
+        #numPrice {
+            width: 100%;
+            height: 67.5px;
+            background-color: tomato;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .num {
+            width: 45%;
+            height: 100%;
+            background-color: thistle;
+            font-size: x-large;
+            line-height: 70px;
+        }
+
+        .price {
+            width: 45%;
+            height: 100%;
+            background-color: grey;
+            font-size: x-large;
+            line-height: 70px;
+        }
+
+
+
+        .hightLight {
+            width: 100%;
+            height: 50px;
+            color: white;
+            background-color: red;
+            opacity: 50%;
+            position: absolute;
+            TOP: 165px;
+
+
+        }
+
+        .hightLightNum {
+            width: 100%;
+            height: 50px;
+            position: absolute;
+            TOP: 165px;
+            color: white;
+            text-align: center;
+            z-index: 5;
+            line-height: 50px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="background">
+        <div id="nav">
+            <div class="container">
+                <div id="btnGroup">
+                    <div class="btn" onclick="filter(2)">台北</div>
+                    <div class="btn" onclick="filter(0)">台中</div>
+                    <div class="btn" onclick="filter(1)">高雄</div>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div id="contentContainer" class="container">
+                <!--<div class="card">
+                    <div class="productName">商品名稱</div>
+                    <div class="productPhoto" style="background-image:url(上益家具存貨api.jpg)">
+                        <div class="hightLightNum">8折優惠中</div>
+                        <div class="hightLight"></div>
+                    </div>
+                  *想用img但不知為甚麼下方會空一行 
+                    <div id="numPrice">
+                        <div class="num">存貨:</div>
+                        <div class="price">售價:</div>
+
+
+                    </div>-->
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    </div>
+
+    </div>
+    </div>
+    <script>
+
+        fetch('https://run.mocky.io/v3/a1bd9f89-926c-46ac-930a-1d1cae8dd7e5')
+
+
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (products) {
+
+                console.log(products)
+                // console.log(products.records)
+                // console.log(products.records.product[0].productName)
+                // console.log(products.records.product[0].imageURL)
+                // console.log(products.records.product[0].states.stock.location[0].locationName)
+                // console.log(products.records.product[0].states.stock.location[0].amount)
+                // console.log(products.records.product[0].states.sale.onsale)
+                // console.log(products.records.product[0].states.sale.price)
+
+                let product = products.records.product
+                var content = document.querySelector('#contentContainer')
+                content.innerHTML = ''
+                console.log(content)
+
+                product.forEach(productList => {
+                    //01定義所需元素
+                    let productName = productList.productName // 產品名稱
+                    let productPhoto = productList.imageURL // 產品照片
+                    let Price = productList.states.sale.price // 原始售價
+                    let discount = productList.states.sale.onsale // 折扣
+                    let discountPrice = discount * Price // 實際售價
+                    let location = productList.states.stock.location.locationName// 地點
+                    let TPAmount = productList.states.stock.location[2].amount// 台北物品數量
+                    let TCAmount = productList.states.stock.location[0].amount// 台中物品數量
+                    let KSAmount = productList.states.stock.location[1].amount// 高雄物品數量
+
+                    //判斷是否有折扣提示
+                    let hightLight
+                    if (discount % 0.1 == 0) {
+                        hightLight = `<div class="hightLightNum">8折優惠中</div>
+                         <div class="hightLight"></div>`
+
+                    } else {
+
+                    }
+
+
+                    content.innerHTML += `<div class="card">
+                    <div class="productName">${productName}</div>
+                    <div class="productPhoto" style="background-image:url(${productPhoto})">
+                        ${hightLight}
+                        </div>
+                    <div id="numPrice">
+                        <div class="num">存貨:</div>
+                        <div class="price">售價:</div>
+
+
+                    </div>
+                    
+
+                </div>`
+
+
+
+
+
+
+
+
+                })
+
+            })
+
+    </script>
+
+</body>
+
+</html>
