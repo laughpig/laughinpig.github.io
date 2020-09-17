@@ -188,18 +188,8 @@
         
 
         
-        for (let index = 0; index < SY.length; index++) {
-            const S = SY[index];
-            console.log(S);
-            item.innerHTML+='<div class="card"><div class="photo" style = "background-image: url(https://i.epochtimes.com/assets/uploads/2014/10/1409221241502483.jpg)"></div><h3>高級紅茶</h3>紅茶葉、水</br>NT.1200</div>'
-            console.log(item.innerHTML);
-        }
-        for (let index = 0; index < SY.length; index++) {
-            const S = SY[index]
-            console.log(S)
-            item.innerHTML+=`<div class="card"><div class="photo" style = "background-image: url(${S.img})"></div><h3>${S.name}</h3>${S.content}</br>NT.${S.price}</div>`
-            console.log(item.innerHTML)
-        }
+       
+        
         for (let index = 0; index < SY.length; index++) {
             const S = SY[index]
             console.log(S)
@@ -208,9 +198,7 @@
         }
 
                     
-        function display(element, index) {
-            item.innerHTML+=`<div class="card"><div class="photo" style = "background-image: url(${element.img})"></div><h3>${element.name}</h3>${element.content}</br>NT.${element.price}</div>`
-        }
+      
 
         function filter(x) {
             item.innerHTML = ""
