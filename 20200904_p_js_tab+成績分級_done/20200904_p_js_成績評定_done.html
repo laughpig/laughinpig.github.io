@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成績計算機</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        h1 {
+            margin: 0;
+            text-align: center;
+        }
+
+        .main {
+            width: 100%;
+            height: 100vh;
+            background-color: cornsilk;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .gameCanvas {
+            width: 600px;
+            height: 400px;
+            background-color: rgb(160, 160, 160);
+            border: 5px solid gray;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .d-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .justify-content-around {
+            justify-content: space-around;
+        }
+
+        .w-100 {
+            width: 100%;
+        }
+
+        span {
+            font-size: 20px;
+            font-weight: 900;
+            margin-right: 10px;
+            width: 150px;
+        }
+
+        input {
+            width: 400px;
+            height: 35px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .btn {
+            width: 200px;
+            height: 50px;
+            background-color: ivory;
+            text-align: center;
+            line-height: 50px;
+            font-size: 24px;
+            font-weight: 900;
+            transition: .3s;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: rgb(26, 26, 24);
+            color: white;
+        }
+
+        .btn:active {
+            transition: .1s;
+            background-color: red;
+            color: white;
+        }
+
+        .resultCanvas {
+            width: 600px;
+            padding: 30px;
+            border: 5px solid gray;
+            border-radius: 10px;
+            opacity: 0;
+            transition: 0.5s;
+
+        }
+
+        .resultCanvas.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="gameCanvas">
+            <h1>成績計算機</h1>
+            <div class="d-flex">
+                <span>請輸入成績</span><input id="grade" type="text">
+            </div>
+
+            <div class="d-flex justify-content-around w-100">
+                <div id="start_btn" class="btn">開始計算</div>
+                <div id="reset_btn" class="btn">重新計算</div>
+            </div>
+        </div>
+        <div class="resultCanvas">
+            <span>成績:</span><span id="result_gade">20.4</span><br>
+            <span>評級:</span><span id="result_Status">己</span><br>
+            <span>建議參考:</span><span id="result_suggest">真的要好好加油...</span><br>
+        </div>
+    </div>
+
+    <script>
+        var start_btn = document.querySelector("#start_btn")
+        var resultCanvas = document.querySelector(".resultCanvas")
+        var start_btn = document.querySelector("#result_bodyStatus")
+        var start_btn = document.querySelector("#start_btn")
+        var grade = document.querySelector('#grade')
+
+
+
+        start_btn.onclick = function () {
+          if (grade .value == ''){alert("請輸入文字")
+          }else if(grade .value <= 0){alert("請輸入「實際」成績")}
+          else if(grade .value  >=0){
+              resultCanvas.classList.add("active")
+              result_gade.innerHTML=grade.value
+              }
+
+          if (grade .value >90){
+              result_Status.innerHTML="優"
+              result_suggest.innerHTML="讀書很好，記得要歇息"
+          }else if(grade .value >80){
+              result_Status.innerHTML="甲"
+              result_suggest.innerHTML="繼續加油"
+            }else if(grade .value >70){
+              result_Status.innerHTML="乙"
+              result_suggest.innerHTML="不錯喔"
+            }else if(grade .value >60){
+              result_Status.innerHTML="丙"
+              result_suggest.innerHTML="在加油好嗎"
+            }else if(grade .value >40){
+              result_Status.innerHTML="丁"
+              result_suggest.innerHTML="快快快"
+            }else if(grade .value >20){
+              result_Status.innerHTML="戊"
+              result_suggest.innerHTML="你在幹嘛"}
+           
+        }
+    </script>
+</body>
+
+</html>

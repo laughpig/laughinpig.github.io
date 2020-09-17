@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 整體規則 */
+        * {
+            box-sizing: border-box;
+            
+        }
+        body{
+            background-color: black;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        a {
+            background-color: transparent;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .justify-content-center {
+            justify-content: center;
+        }
+
+        .container {
+            width: calc(100% - 200px);
+            height: 100%;
+            
+            margin: 0 auto;
+        }
+
+        .align-items-center {
+            align-items: center;
+        }
+
+        .position-absolute {
+            position: absolute;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        .img{
+            background-color:white;
+        }
+
+        /* 以下為正文 */
+
+        /* header */
+
+        #top {
+            width: 100%;
+            height: 10vh;
+            padding: 1.25vh;
+
+
+        }
+
+        #logo {
+            width: 15vh;
+            height: 7.5vh;
+            background-color: #fff;
+
+            background-image: url(https://data2.origin.com/content/dam/originx/web/app/games/witcher/the-witcher-wild-hunt/the-witcher-wild-hunt_gdp-logo.png);
+            background-color:transparent;
+            background-size: cover;
+            float: left;
+
+        }
+
+        #barright {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            width: 200px;
+            float: right;
+            
+        }
+
+        #barright ul {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: space-between;
+
+
+        }
+
+        #barright li a {
+            display: block;
+            text-align: center;
+            padding: 1.5vh 0;
+            width: 24px;
+            height: 20px;
+            opacity: 50%;
+            
+        }
+
+
+        #banner {
+            width: 100%;
+            height: 80vh;
+            background-color: rgb(109, 160, 116);
+            background-image: url(https://static.cdprojektred.com/thewitcher.com/media/wallpapers/witcher3/full/witcher3_en_wallpaper_wallpaper_7_1920x1080_1433245916.jpg);
+            background-position-y: -40px;
+            background-position:center;
+
+        }
+
+        /* NAV */
+
+        #nav {
+            width: 100%;
+            height: 10vh;
+               
+
+        }
+
+
+
+
+        #nav .container {
+            display: flex;
+            align-items: center;
+        }
+
+
+        #nav ul {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            font-size:px ;
+            font-family: microsoft jhenghei UI;
+            color: lightyellow;
+            
+            justify-content: space-around;
+            line-height: 80px;
+            position: sticky;
+            top: 0;
+            left: 0;    
+            
+
+
+
+        }
+
+        .youtube {
+            background-image: url(yt_icon.png);
+            background-size: cover;
+            opacity: 50%;
+        }
+
+        .twitter {
+            background-image: url(tw_icon.png);
+            background-size: cover;
+            opacity: 50%;
+            
+        }
+
+        .facebook {
+            background-image: url(fb_icon.png);
+            background-size: cover;
+            opacity: 50%;
+        }
+
+        .instagram {
+            background-image: url(ig_icon.png);
+            background-size: cover;
+            opacity: 50%;
+        }
+
+        #nav ul a {
+            display: block;
+            color: white;
+        }
+
+
+        /* tamplate-A */
+        .tamplate-A {
+            width: 100%;
+            background-color: black;
+        }
+
+        .tamplate-A .d-flex{
+            background-color: black;
+        }
+
+        .tamplate-A .textbox {
+            width: 75%;
+            padding: 20px;
+            background-color:rgba(255, 255, 255, 0.664);
+            min-height: 150px;
+            /* 為什麼這裡要加min-hieigh */
+            z-index: 10;
+
+
+        }
+
+        .tamplate-A .img {
+            background-color: black;
+            width: 50%;
+            height: 100vh;
+                      
+        }
+
+        .a1{
+            background-image: url(https://static.cdprojektred.com/thewitcher.com/media/wallpapers/witcher3/full/witcher3_en_wallpaper_the_witcher_3_wild_hunt_geralt_with_trophies_1920x1080_1449484678.png);
+            background-position-x: 90%;
+            opacity: 50%;
+        }
+
+        .a2{
+            background-image: url(https://www.whatsageek.com/wp-content/uploads/2016/04/2457637-the_witcher_3_wild_hunt_geralt_vs_fiend.jpg);
+            background-position-x: 60%;
+            opacity: 50%;
+        }
+
+        /* tamplate-B */
+        .bar{
+            width: 100%;
+            height: 10vh;
+            
+        }
+        .tamplate-B .d-flex{
+            flex-wrap: wrap;
+        }
+              
+    
+        .tamplate-B .img {
+            width: 50%;
+            height: 80vh;
+            
+        }
+        .tamplate-B .textbox {
+            background-color: grey;
+            color: whitesmoke;
+            width: 50%;
+            
+            padding: 100px;
+        }
+        .b1{
+            background-image: url(https://honestgamer560559905.files.wordpress.com/2019/07/fxgg44qt8p731.jpg);
+            background-size: cover;
+            background-position-y:60% ;
+            
+
+        }
+        /* tamplate-C */
+        .tamplate-C{
+            width: 100%;
+            height: unset;
+            background-color:black;
+            color: thistle;
+        
+            
+        }
+        .tamplate-C .position-absolute{
+            position: static;
+            transform: unset ;
+        }
+
+        .tamplate-C .textbox{
+            padding: 20px 30px;
+        }
+
+        .tamplate-C .img{
+            height: 400px;
+            position: static;
+        }
+        /* tamplate-D */
+        /* tamplate-E */
+        /* tamplate-F */
+        /* footer */
+
+        /* RWD */
+        @media (max-width:1280px) {
+            /* tamplate-A */
+            /* tamplate-B */
+            /* tamplate-C */
+            /* tamplate-D */
+            /* tamplate-E */
+            /* tamplate-F */
+        }
+
+        @media (max-width:960px) {
+            /* tamplate-A */
+            /* tamplate-B */
+            /* tamplate-C */
+            /* tamplate-D */
+            /* tamplate-E */
+            /* tamplate-F */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="top">
+            <div class="container">
+
+                <div id="logo"></div>
+                <div id="barright">
+                    <ul>
+                        <li class="youtube"><a target="_blank" href="https://www.youtube.com/user/WitcherGame"></a></li>
+                        <li class="twitter"><a target="_blank" href="https://twitter.com/witchergame"></a></li>
+                        <li class="facebook"><a target="_blank" href="hhttps://www.facebook.com/thewitcher"></a></li>
+                        <li class="instagram"><a target="_blank" href="https://www.instagram.com/cdpred/"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="banner"></div>
+    </header>
+
+    <nav>
+        <div id="nav">
+            <div class="container">
+                <ul>
+                    <li><a href="">劇情大綱</a></li>
+                    <li><a href="">角色介紹</a></li>
+                    <li><a href="">精彩劇照</a></li>
+                    <li><a href="">最新消息</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="bar"></div>
+        <section class="tamplate-A">
+            
+            <div class="d-flex ">
+
+                <div class="img d-flex justify-content-center align-items-center a1">
+                    
+                    <div class="textbox">
+                        <h3>我是標題1</h3>
+                        <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文</p>
+                    </div>
+                </div>
+            
+           
+
+                <div class="img d-flex justify-content-center align-items-center a2">
+                    <div class="textbox">
+                        <h3>我是標題2</h3>
+                        <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文
+                        文內文內文內文內文</p>
+                    </div>
+                </div>
+            </div>
+
+            
+
+
+        </section>
+        <div class="bar"></div>
+        <section class="tamplate-B">
+            <div class="container d-flex">
+                <div class="bar"></div>
+                <div class="img d-flex justify-content-center align-items-center  b1"></div>
+                <div class="textbox">
+                    <h3>我是標題2</h3>
+                    <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文
+                    文內文內文內文內文</p>
+                    
+            </div>
+            <div class="bar"></div>
+        </section>
+        <div class="bar"></div>
+        <section class="tamplate-C">
+            <div class="container d-flex justify-content-center align-items-center ">
+                <div class="text box">
+                    <h3>我是標題1</h3>
+                    <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文
+                    文內文內文內文內文</p>
+                </div>
+            </div>
+            <div class="img"></div>
+        </section>
+        <section class="tamplate-D"></section>
+        <section class="tamplate-E"></section>
+        <section class="tamplate-F"></section>
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>

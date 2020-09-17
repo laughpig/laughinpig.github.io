@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #nav {
+            display: flex;
+            height: 50px;
+            background-color: black;
+            justify-content: space-around;
+
+        }
+
+        #nav .nav {
+            display: box;
+            width: 150px;
+            height: 50px;
+            background-color: grey;
+            text-align: center;
+            line-height: 10px;
+        }
+
+        #nav .nav.clicked {
+            background-color: rgb(163, 75, 33);
+        }
+
+        #word {
+
+            justify-content: space-around;
+            padding: 50px;
+            height: 300px;
+            background: rgb(238, 238, 73);
+        }
+
+        #word .word {
+            width: 100%;
+            height: 300px;
+            background-color: aliceblue;
+            padding: 20px;
+            display: none;
+            
+        }
+
+        #word .clicked {
+            
+            display: block;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <div id=n1 class="nav">
+            <H1>標題1</H1>
+        </div>
+        <div id=n2 class="nav">
+            <H1>標題2</H1>
+        </div>
+        <div id=n3 class="nav">
+            <H1>標題3</H1>
+        </div>
+    </div>
+    <div id="word">
+        <div id=w1 class="word">
+            <h4>標題1</h4>
+            <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文</p>
+        </div>
+        <div id=w2 class="word">
+            <h4>標題2</h4>
+            <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文</p>
+        </div>
+        <div id=w3 class="word">
+            <h4>標題3</h4>
+            <p>內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文內文</p>
+        </div>
+
+    </div>
+
+
+    <script>
+        var navs= document.querySelectorAll(".nav")
+        var words= document.querySelectorAll(".word")
+
+        for (let index = 0; index < navs.length; index++) {
+            const nav = navs[index];
+            const word = words[index];
+
+            nav.onclick = function(){
+                clearAllClicked()
+                nav.classList.add('clicked')
+                word.classList.add('clicked')
+            }          
+        
+        }
+        function clearAllClicked(){
+            for (let index = 0; index < navs.length; index++) {
+                
+                navs[index].classList.remove('clicked')
+                words[index].classList.remove('clicked')
+            }          
+                
+            }
+        
+        
+        // var w1= document.querySelector("#w1")
+        // var W2= document.querySelector("#W2")
+        // var W3= document.querySelector("#W3")
+        // var n1= document.querySelector("#n1")
+        // var n2= document.querySelector("#n2")
+        // var n3= document.querySelector("#n3")
+        // console.log(w1);
+        // console.log(w2);
+        // console.log(w3);
+        // console.log(n1);
+        // console.log(n2);
+        // console.log(n3);
+        
+        // n1.onclick = function () {
+        //     w1.classList.remove("clicked")
+        //     w2.classList.add("clicked")
+        //     w3.classList.add("clicked")
+        //     n1.classList.add("clicked")
+        //     n2.classList.remove("clicked")
+        //     n3.classList.remove("clicked")
+        // }
+        // n2.onclick = function () {
+        //     w1.classList.add("clicked")
+        //     w2.classList.remove("clicked")
+        //     w3.classList.add("clicked")
+        //     n1.classList.remove("clicked")
+        //     n2.classList.add("clicked")
+        //     n3.classList.remove("clicked")
+        // }
+        // n3.onclick = function () {
+        //     w1.classList.add("clicked")
+        //     w2.classList.add("clicked")
+        //     w3.classList.remove("clicked")
+        //     n1.classList.remove("clicked")
+        //     n2.classList.remove("clicked")
+        //     n3.classList.add("clicked")
+        // }
+
+    </script>
+</body>
+
+</html>

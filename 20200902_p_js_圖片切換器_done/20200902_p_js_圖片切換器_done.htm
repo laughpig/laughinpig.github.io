@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .pig{
+            width: 500px;
+            height: 500px;
+            background-image: url(https://w0.pngwave.com/png/189/276/pig-teddy-bear-waddles-waddles-png-clip-art.png);
+            
+        }
+        .cooked{
+            width: 500px;
+            height: 500px;
+            
+            background-image: url(https://png.pngtree.com/element_our/20190530/ourlarge/pngtree-delicious-cartoon-bacon-meat-image_1233931.jpg);
+            
+            
+        }
+    </style>
+</head>
+<body>
+       <div class="pig"></div>
+
+
+<script>
+// 開始(指定目標) 
+var btn=document .querySelector(".pig")
+btn .onclick =function(){
+    if (btn.classList.contains("cooked")==true) {console.log("不可吃")
+    btn.classList.remove("cooked")
+    btn.classList.add("pig")
+    } else {console.log("可吃")
+    btn.classList.add("cooked")
+    btn.classList.remove("pig")
+        
+    }
+}
+
+
+</script>
+
+</body>
+</html>
