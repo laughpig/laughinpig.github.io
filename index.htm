@@ -1,28 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* breakpoint:780px */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url(backgrond.png);
+
+
+        }
+
+        .space-m {
+            width: 100%;
+            height: 240px;
+            background-color: transparent;
+
+        }
+
+        h1 {
+            font-size: 36px;
+            padding: 0;
+            margin: 0;
+            letter-spacing: 15px
+        }
+
+        h2 {
+            font-size: 28px;
+        }
+
+        h3 {
+            font-size: 28px;
+        }
+
+
+        #homepage {
+            width: 100%;
+            height: 100vh;
+            background-color: pink;
+            background-image: url();
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+
+
+        }
+
+
+        #nav {
+            width: 100%;
+            height: 10vh;
+            background-color: aquamarine;
+            margin-top: 65vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        #nav i {
+
+            line-height: 10vh;
+            font-size: 30px;
+            margin: 0 40px;
+        }
+
+        .container-s {
+            width: 780px;
+            height: 420px;
+            background-color: #fff;
+            margin: 0 auto;
+            display: flex;
+
+        }
+
+        .container-m {
+            width: 940px;
+            height: 600px;
+            background-color: #fff;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+
+
+
+        }
+
+        .container-l {
+            width: 960px;
+            height: 600px;
+            background-color: #fff;
+            margin: 0 auto;
+            display: flex;
+
+        }
+        .container-xl {
+            width: 1080px;
+            height: 600px;
+            background-color: #fff;
+            margin: 0 auto;
+            display:flex;
+            flex-wrap: wrap;
+
+        }
+
+        .boxOne {
+            width: 100%;
+            height: 480px;
+            background-color: yellow;
+            margin: auto 0;
+        }
+
+        .sectiionName {
+            width: 780px;
+            height: 60px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsBar {
+            display: flex;
+            justify-content: center;
+            width: 600px;
+            height: 60px;
+            margin: 10px auto;
+            background-color: wheat;
+            line-height: 60px;
+
+        }
+
+        .more {
+            width: 200px;
+            height: 60px;
+            background-color: wheat;
+            margin: auto;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        #footer {
+            width: 100%;
+            height: 180px;
+            background-color: grey;
+        }
+
+        .card {
+            width: 380px;
+            height: 360px;
+            background-color: wheat;
+            border-radius: 20px;
+
+
+        }
+
+        .cardPhto {
+            width: 100%;
+            height: 70%;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            background-color: tomato;
+        }
+
+        .card h2 {
+            line-height: 50px;
+            text-align: center;
+            letter-spacing: 8px;
+        }
+
+        .cardGroup {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .boxTwo {
+            width: 100%;
+            height: 500px;
+            background-color:yellow;
+            margin: auto 0;
+        }
+        #vehycle{
+            width: 100%;
+            height: 120px;
+            background-color: wheat;
+            display: flex;
+            margin: 0 auto;
+        }
+        .boxgroup{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .box{
+            width: 214px;
+            height: 400px;
+            background-color: grey;
+            position: relative;
+        }
+       
+        .boxName{
+            width: 214px;
+            height: 50px;
+            background-color: rgb(214, 214, 214);
+            position: absolute;
+            top: 350px;
+        }
+        .boxThree{
+            width: 100%;
+            height: 500px;
+            background-color:yellow;
+            margin: auto 0;
+        }
+        #map{
+            width: 960px;
+            height: 90%;
+            background-color:grey;
+            margin: 0 auto;
+        }
+        .btn{
+            width: 50%;
+            height: 100%;
+            background-color:white;
+        }
+        .bg{
+            background-color: khaki;
+        }
+    </style>
 </head>
+
 <body>
     <header>
-<div id="homepage">
-    <div id="nav">
-        <i></i>
-        <i></i>
-        <i></i>
-        <i></i>
-    </div>
-</div>
-    </header>
-    <container>
+        <div id="homepage">
+            <div id="nav">
+                <i>最新訊息</i>
+                <i>線上服務</i>
+                <i>活動剪影</i>
+                <i>認識仁海</i>
+                <i>前往仁海</i>
 
-    </container>
+            </div>
+        </div>
+    </header>
+    <div class="space-m"></div>
+    <section01>
+        <div class="container-m">
+            <div class="boxOne">
+                <div class="sectiionName">
+                    <h1>最新訊息</h1>
+                </div>
+                <div class="newsBar">
+                    <div class="date">2020-08-12</div>
+                    <div class="dash">----------</div>
+                    <div class="avtivityName">109年天上聖母契子會會員大會</div>
+                </div>
+                <div class="newsBar">
+                    <div class="date">2020-08-12</div>
+                    <div class="dash">----------</div>
+                    <div class="avtivityName">109年天上聖母契子會會員大會</div>
+                </div>
+                <div class="newsBar">
+                    <div class="date">2020-08-12</div>
+                    <div class="dash">----------</div>
+                    <div class="avtivityName">109年天上聖母契子會會員大會</div>
+                </div>
+                <div class="newsBar">
+                    <div class="date">2020-08-12</div>
+                    <div class="dash">----------</div>
+                    <div class="avtivityName">109年天上聖母契子會會員大會</div>
+                </div>
+                <div class="more">觀看更多</div>
+            </div>
+        </div>
+
+
+
+    </section01>
+    <div class="space-m"></div>
+    <section02>
+        <div class="container-m">
+            <div class="boxTwo">
+                <div id="service" class="sectiionName">
+                    <h1>線上服務</h1>
+                </div>
+
+                <div class="cardGroup">
+                    <div class="card">
+                        <div class="cardPhto"></div>
+                        <div class="cardText">
+                            <h2>宮廟導覽</h2>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardPhto"></div>
+                        <div class="cardText">
+                            <h2>抽籤請示</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section02>
+    <div class="space-m"></div>
+    <section03>
+        <div class="container-xl">
+            <div class="sectiionName">
+                <h1>活動剪影</h1>
+            </div>
+
+        </div>
+
+    </section03>
+    <div class="space-m"></div>
+    <section03>
+        <div class="container-xl">
+            <div class="boxThree">
+            <div class="sectiionName">
+                <h1>認識仁海</h1>
+            </div>
+            <div class="boxgroup">
+                <div class="box">
+                    <div class="boxName"></div>
+                </div>
+                <div class="box">
+                    <div class="boxName"></div>
+                </div>
+                <div class="box">
+                    <div class="boxName"></div>
+                </div>
+                <div class="box">
+                    <div class="boxName"></div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+        
+
+    </section03>
+    <div class="space-m"></div>
+    <section04>
+        <div class="container-xl">
+            <div class="sectiionName">
+                <h1>前往仁海</h1>
+                
+            </div>
+            <div id="map"></div>
+        </div>
+        <div id="vehycle">
+            <div class="btn"></div> 
+            <div class="btn bg"></div>
+        </div>
+
+    </section04>
 
     <footer>
+        <div id="footer">
+            
+        </div>
 
     </footer>
-    
+
 </body>
+
 </html>
