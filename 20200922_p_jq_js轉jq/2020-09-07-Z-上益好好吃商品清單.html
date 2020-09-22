@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 整體規則 */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: calc(100% - 150px);
+            
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 0 auto;
+
+        }
+        /* nav架構 */
+        #nav {
+            width: 100%;
+            height: 40px;
+            background-color: yellow;
+
+            margin: 0 auto;
+        }
+        
+        .btn {
+            width: 100px;
+            height: 100%;
+            background-color: yellowgreen;
+            border-radius: 15%;
+            text-align: center;
+            line-height: 28pt;
+        }
+        /* NAV效果 */
+        .btn:hover {
+            background-color: rgb(68, 128, 93);
+            color: white;
+        }
+        .btn:active {
+            background-color: rgb(37, 29, 20);
+        }
+
+        .active {
+            background-color: darkseagreen;
+        }
+        /* 商品展示區 */
+        #display {
+            width: 100%;
+            height: 800px;
+            background-color: rgb(236, 236, 236);
+            margin: 0 auto;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            
+        }
+
+        .card {
+            width: 200px;
+            height: 300px;
+            background-color: rgb(228, 228, 115);
+            border-radius: 10%;
+            padding: 10px;
+            
+        }
+        .photo{
+            width: 100%;
+            height: 50%;
+            background-image: url(https://i.epochtimes.com/assets/uploads/2014/10/1409221241502483.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 20px;
+            margin: 0 auto;
+        
+            
+        
+        }
+        .text{
+            margin: 0px 0px 0px 15px ;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <div class="container">
+            <div id=btn1 class="btn" onclick="filter(0)">全部</div>
+            <div class="btn" onclick="filter(1)">飲料</div>
+            <div class="btn" onclick="filter(2)">點心</div>
+            <div class="btn" onclick="filter(3)">食物</div>
+        </div>
+
+    </div>
+    <div id="display">
+        <div id='item' class="container">
+            <!-- <div class="card">
+                <div class="photo" style = "background-image: url(https://i.epochtimes.com/assets/uploads/2014/10/1409221241502483.jpg)"></div>
+                <div class="text">
+                    <h3>高級紅茶</h3>
+                    紅茶葉、水</br>
+                    </br>
+                    NT.1200
+                </div>
+               
+            </div>
+            <div class="card">
+                <div class="photo"></div>
+                <h3>高級紅茶</h3>
+                紅茶葉、水</br>
+                NT.1200
+            </div>
+            <div class="card">
+                <div class="photo"></div>
+                <h3>高級紅茶</h3>
+                紅茶葉、水</br>
+                NT.1200
+            </div> -->
+        </div>
+
+
+    </div>
+
+    <script>
+            var SY= [
+            {
+                name: '高級紅茶',
+                img: 'https://i.epochtimes.com/assets/uploads/2014/10/1409221241502483.jpg',
+                content: '紅茶葉、水',
+                price: '1200',
+                tag1: 'drink'
+            },
+            {
+                name: '手工餅乾',
+                img: 'https://cdn2.ettoday.net/images/3629/d3629818.jpg',
+                content: '澱粉、糖',
+                price: '20',
+                tag1: 'dessert'
+            },
+            {
+                name: '珍珠奶茶',
+                img: 'https://attach.setn.com/newsimages/2018/11/06/1627152-XXL.jpg',
+                content: '奶茶、珍珠、水',
+                price: '65',
+                tag1: 'drink',
+                tag2: 'dessert'
+            },
+            {
+                name: '紅燒牛肉麵',
+                img: 'https://1.bp.blogspot.com/-4L2AeEI4x9A/XgA9c6okfMI/AAAAAAABJ-s/sXJMDKGOaY08UKCD82ioxSFQq5IC2u9PwCKgBGAsYHg/s1600/00.jpg',
+                content: '牛肉、麵條、調味料',
+                price: '180',
+                tag1: 'food'
+            },
+            {
+                name: '滷肉飯',
+                img: 'https://2.bp.blogspot.com/-VKO_fV4tzB8/WsDMatMdEQI/AAAAAAABNgc/cyaHyT2FjxY_U96pKdBcz2BMSVFPvPSPwCLcBGAs/s1600/DSC_00461.JPG',
+                content: '飯、滷肉、調味料',
+                price: '35',
+                tag1: 'food'
+            },
+            {
+                name: '蘋果派',
+                img: 'https://www.didacheese.com/wp-content/uploads/2016/06/image-15.jpeg',
+                content: '蘋果、派皮、糖',
+                price: '210',
+                tag1: 'dessert'
+            },
+            {
+                name: '多多綠茶',
+                img: 'https://www.85cafe.com/file/product/w500/%E5%A4%9A%E5%A4%9A%E7%B6%A0%E8%8C%B6.jpg',
+                content: '養樂多、糖、綠茶',
+                price: '50',
+                tag1: 'drink'
+            }
+        ]
+        
+        
+
+        
+       
+        
+        for (let index = 0; index < SY.length; index++) {
+            const S = SY[index]
+            console.log(S)
+           $('#item').innerHTML+=`<div class="card"><div class="photo" style = "background-image: url(${S.img})"></div><h3>${S.name}</h3>${S.content}</br>NT.${S.price}</div>`
+            console.log($('#item').innerHTML)
+        }
+
+                    
+      
+
+        function filter(x) {
+           $('#item').innerHTML = ""
+            
+            SY.forEach(function (element, index) {
+
+                if (element.tag1 == 'drink' && x==1 ) {
+                   $('#item').innerHTML+=`<div class="card"><div class="photo" style = "background-image: url(${element.img})"></div><h3>${element.name}</h3>${element.content}</br>NT.${element.price}</div>`
+                    
+                } else if (element.tag1 == 'food' && x==2 ){   
+                    $('#item').innerHTML+=`<div class="card"><div class="photo" style = "background-image: url(${element.img})"></div><h3>${element.name}</h3>${element.content}</br>NT.${element.price}</div>`
+
+
+                }else if ((element.tag1 == 'dessert'|| element.tag2== 'dessert') && x==3 ){   
+                   $('#item').innerHTML+=`<div class="card"><div class="photo" style = "background-image: url(${element.img})"></div><h3>${element.name}</h3>${element.content}</br>NT.${element.price}</div>`
+
+
+                }else if ( x == 0 ){   
+                   $('#item').innerHTML+=`<div class="card"><div class="photo" style = "background-image: url(${element.img})"></div><h3>${element.name}</h3>${element.content}</br>NT.${element.price}</div>`
+
+
+                }
+                
+            } )
+            
+        }
+           
+        
+    </script>
+    
+</body>
+
+</html>
