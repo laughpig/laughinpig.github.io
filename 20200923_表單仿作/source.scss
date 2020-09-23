@@ -1,0 +1,86 @@
+// 1.變數
+$gr: grey;
+$wh:white;
+$blk:black;
+$bl:rgb(82, 82, 255);
+$f_XL:26px;
+$f_L:16px;
+$f_M:14px;
+$f_S:12px;
+$bw:254px;
+$bh_s:66px;
+$ti_h:33px;
+$bh_l:115px;
+$b_m_pad:0 0 0 20px;
+$w:552px;
+$mar:0 0 33px 0;
+
+
+
+
+
+// 2.巢狀
+body{
+    margin: 0;
+    font-family: "微軟正黑體","Noto Sans TC ";
+
+    h1{
+        font-size: $f_XL;
+        margin: 0 ;
+        text-align: center;
+        line-height: 72px;
+        color: $wh;
+    }
+    h2{
+        font-size: $f_L;        
+        margin: 0;
+    }
+    h3{
+        font-size: $f_M;
+        margin: 0;
+        color: $gr;
+    }
+    h4{
+        font-size: $f_S;
+        margin: 0;
+    }
+    #header{
+        width: $w;
+        height: 71px;
+        background-color:$bl;
+        margin: 0 auto;
+    }
+    
+    #container{
+        width: $bw;
+        height: 100%;
+        background-color: $wh;
+        margin: 0 auto;
+        .title{
+            width: $bw;
+            height:$ti_h;
+            background-color: $wh;
+        }
+
+        .box-S{
+            width: $bw;
+            height:$bh_s;
+            background-color: $gr;
+            margin:$b_mar;
+        }
+        .box-M{
+            margin:$b_mar;
+        }
+        #box-m{
+            padding: $b_m_pad;
+            
+        }
+        .box-L{
+            height: $bh_l;
+            width: $w;
+            margin:$b_mar;
+            background-color: $gr;
+        }
+    }
+}
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./source.css">
+   
+</head>
+<body>
+    <div id="header"><h1>您的調查問卷</h1></div>
+    <div id="footer">
+        <div id="container">
+        <div class="box-S">
+            <div class="title"><h2>姓名 | Name</h2></div>
+            <input type="text" placeholder="您的姓名"required>
+        </div>
+        <div class="box-S">
+            <div class="title"><h2>性別 | Gender</h2></div>
+            <input type="text" placeholder="您的性別"required>
+        </div>
+        <div class="box-S">
+            <div class="title"><h2>出生年月日 | Birthday</h2></div>
+            <input type="date" required>
+        </div>
+        <div class="box-S">
+            <div class="title"><h2>電話 | Phone</h2></div>
+            <input type="text" placeholder="您的電話" required>
+        </div>
+        <div class="box-S">
+            <div class="title"><h2>電子信箱 | Email</h2></div>
+            <input type="email" placeholder="您的信箱" required>
+        </div>
+        <div class="box-M">
+            <div class="title"><h2>貓狗大戰 | Dod V.S Cat</h2></div>
+            <div id="box-m">
+            <input type="radio" name="animal" id="我是貓奴">
+            <label for="我是貓奴">我是貓奴！！</label>
+            <br>
+            <input type="radio" name="animal" id="我愛狗勾">
+            <label for="我愛狗勾">我愛狗勾！！</label>
+            <br>
+            <input type="radio" name="animal" id="我都愛">
+            <label for="我都愛">小朋友才選擇，我都愛！！</label>
+        </div>
+        </div>
+        <div class="box-L">
+            <div class="title"><h2>興趣 | Hobby</h2></div>
+            <input type="checkbox" name="Hobby" id="球">
+            <label for="Hobby">打球</label>
+            <input type="checkbox" name="Hobby" id="電影">
+            <label for="Hobby">看電影</label>
+            <input type="checkbox" name="Hobby" id="健身">
+            <label for="Hobby">健身</label>
+            <input type="checkbox" name="Hobby" id="爬山">
+            <label for="Hobby">爬山</label>
+            <input type="checkbox" name="Hobby" id="唱歌">
+            <label for="Hobby">唱歌</label>
+            <input type="checkbox" name="Hobby" id="畫圖">
+            <label for="Hobby">畫圖</label>
+            <input type="checkbox" name="Hobby" id="騎車跑山">
+            <label for="Hobby">騎車跑山</label>
+            <input type="checkbox" name="Hobby" id="騎單車">
+            <label for="Hobby">騎單車</label>
+            <input type="checkbox" name="Hobby" id="其他">
+            <label for="Hobby">其他</label>
+            <input type="text" name="" id="">
+            
+        </div>
+        <div class="box-XL">
+            <div class="title"><h2>想說的話 | Reply</h2></div>
+            <label for="滿意"><h3>滿意這份問卷嗎？說說你想說的話吧！</h3></label>
+            <br>
+            
+            <textarea name="reply" id="reply" cols="30" rows="10"></textarea>
+        </div>
+        <input id="send"type="submit" value="送出資料">
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+
+        </script>
+    
+</body>
+</html>

@@ -1,0 +1,61 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  font-family: "微軟正黑體","Noto Sans TC ";
+}
+
+body h1 {
+  font-size: 26px;
+  margin: 0;
+  text-align: center;
+  line-height: 72px;
+  color: white;
+}
+
+body h2 {
+  font-size: 16px;
+  margin: 0;
+}
+
+body h3 {
+  font-size: 14px;
+  margin: 0;
+  color: grey;
+}
+
+body h4 {
+  font-size: 12px;
+  margin: 0;
+}
+
+body #header {
+  width: 552px;
+  height: 71px;
+  background-color: #5252ff;
+  margin: 0 auto;
+}
+
+body #container {
+  width: 254px;
+  height: 100%;
+  background-color: white;
+  margin: 0 auto;
+}
+
+body #container .title {
+  width: 254px;
+  height: 33px;
+  background-color: white;
+}
+
+body #container .box-S {
+  width: 254px;
+  height: 66px;
+  background-color: grey;
+  margin: 0 0 33px 0;
+}
+
+body #container #box-m {
+  padding: 0 0 0 20px;
+}
+/*# sourceMappingURL=source.css.map */
