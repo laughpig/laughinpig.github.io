@@ -1,0 +1,21 @@
+一、取得(Fetch)
+取得留言板API資料網址:https://ajax-lesson.digipack-develop.com/news
+
+
+二、發送 (完成表單的標籤屬性)
+留言板資料請透過post送到:https://ajax-lesson.digipack-develop.com/news
+
+資料發送請包含以下名稱和指定資料型態
+
+1.title(string)
+2.content(string)
+3.href(非必填,string)
+4.date(日期格式)
+5.target(非必填,true/false)
+6.image_url(string)
+
+
+挑戰:
+*資料要從最新排到最舊?
+
+*要怎麼只拿到前20筆資料就好?

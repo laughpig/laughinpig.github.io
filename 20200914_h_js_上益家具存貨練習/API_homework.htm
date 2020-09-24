@@ -205,7 +205,7 @@
             .then(function (products) {
 
                 console.log(products)
-                // console.log(products.records)
+                console.log(products.records)
                 // console.log(products.records.product[0].productName)
                 // console.log(products.records.product[0].imageURL)
                 // console.log(products.records.product[0].states.stock.location[0].locationName)
@@ -221,6 +221,7 @@
                 product.forEach(productList => {
                     //01定義所需元素
                     let productName = productList.productName // 產品名稱
+                    console.log(productName);
                     let productPhoto = productList.imageURL // 產品照片
                     let Price = productList.states.sale.price // 原始售價
                     let discount = productList.states.sale.onsale // 折扣
