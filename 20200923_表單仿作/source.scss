@@ -1,86 +1,142 @@
 // 1.變數
+// 整體顏色
 $gr: grey;
-$wh:white;
-$blk:black;
-$bl:rgb(82, 82, 255);
-$f_XL:26px;
-$f_L:16px;
-$f_M:14px;
-$f_S:12px;
-$bw:254px;
-$bh_s:66px;
-$ti_h:33px;
-$bh_l:115px;
-$b_m_pad:0 0 0 20px;
-$w:552px;
-$mar:0 0 33px 0;
-
-
+$wh: white;
+$blk: black;
+$bl: rgb(82, 82, 255);
+// 整體字級
+$h1: 26px;
+$h2: 16px;
+$h3: 14px;
+$h4: 12px;
+// 寬度
+$bw: 254px;
+$w: 552px;
+// 樣板框格式
+$bh_s: 66px;
+$bh_l: 115px;
+$mar: 0 0 33px 0;
+// 標題格式
+$ti_h: 33px;
+// 選項padding
+$b_m_pad: 0 0 0 20px;
 
 
 
 // 2.巢狀
-body{
+// 整體規則
+body {
     margin: 0;
-    font-family: "微軟正黑體","Noto Sans TC ";
+    font-family: "微軟正黑體", "Noto Sans TC ";
 
-    h1{
-        font-size: $f_XL;
-        margin: 0 ;
+    h1 {
+        font-size: $h1;
+        margin: 0;
         text-align: center;
         line-height: 72px;
         color: $wh;
     }
-    h2{
-        font-size: $f_L;        
+    h2 {
+        font-size: $h2;
         margin: 0;
     }
-    h3{
-        font-size: $f_M;
+    h3 {
+        font-size: $h3;
         margin: 0;
         color: $gr;
     }
-    h4{
-        font-size: $f_S;
+    h4 {
+        font-size: $h4;
         margin: 0;
     }
-    #header{
-        width: $w;
-        height: 71px;
-        background-color:$bl;
-        margin: 0 auto;
+    input {
+        border-radius: 5px;
+        border: 1px solid $blk;
+        // width: 100%;
+    }
+    ::placeholder{
+        padding: 5px 0 0 15px;
+        
     }
     
-    #container{
+    // 標題
+    #header {
+        width: $w;
+        height: 71px;
+        background-color: $bl;
+        margin: 0 auto;
+    }
+    // 提示
+    #textbox{
+        text-align: center;
+        h4{
+            padding: 50px 0 40px 0;
+            color: $gr;
+        }
+    }
+    // 問卷
+    #container {
         width: $bw;
+        height: 100%;
         height: 100%;
         background-color: $wh;
         margin: 0 auto;
-        .title{
+        display: flex;
+        flex-wrap: wrap;
+
+        .title {
             width: $bw;
-            height:$ti_h;
+            height: $ti_h;
             background-color: $wh;
         }
-
-        .box-S{
+        // 依據框大小設定樣板
+        .box-S {
             width: $bw;
-            height:$bh_s;
-            background-color: $gr;
-            margin:$b_mar;
+            height: $bh_s;
+            margin: $mar;
+            input{
+                width: 100%;
+            }
         }
-        .box-M{
-            margin:$b_mar;
+        .box-M {
+            margin: $mar;
+
+            #box-m {
+                padding: $b_m_pad;
+            }
         }
-        #box-m{
-            padding: $b_m_pad;
+
+        .box-L {
             
+            display: flex;
+            flex-wrap: wrap;
+            margin: $mar;
+
+            label {
+                width: 100px;
+            }
+            #other{
+                width: 100%;
+            }
+        
         }
-        .box-L{
-            height: $bh_l;
-            width: $w;
-            margin:$b_mar;
-            background-color: $gr;
+        .box-XL{
+            width: $bw;
+            margin: $mar;
+            #reply{
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+        //送出按鈕
+        #send {
+            margin: 20px auto;
+            background-color: $bl;
+            color: $wh;
+            font-family: "微軟正黑體", "Noto Sans TC ";
+            border: 0;
+            width: 100px;
+            height: 28px;
         }
     }
 }
-

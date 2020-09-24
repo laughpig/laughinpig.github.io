@@ -1,7 +1,7 @@
 @charset "UTF-8";
 body {
   margin: 0;
-  font-family: "微軟正黑體","Noto Sans TC ";
+  font-family: "微軟正黑體", "Noto Sans TC ";
 }
 
 body h1 {
@@ -28,6 +28,27 @@ body h4 {
   margin: 0;
 }
 
+body input {
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+body ::-webkit-input-placeholder {
+  padding: 5px 0 0 15px;
+}
+
+body :-ms-input-placeholder {
+  padding: 5px 0 0 15px;
+}
+
+body ::-ms-input-placeholder {
+  padding: 5px 0 0 15px;
+}
+
+body ::placeholder {
+  padding: 5px 0 0 15px;
+}
+
 body #header {
   width: 552px;
   height: 71px;
@@ -35,11 +56,26 @@ body #header {
   margin: 0 auto;
 }
 
+body #textbox {
+  text-align: center;
+}
+
+body #textbox h4 {
+  padding: 50px 0 40px 0;
+  color: grey;
+}
+
 body #container {
   width: 254px;
   height: 100%;
+  height: 100%;
   background-color: white;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 body #container .title {
@@ -51,11 +87,55 @@ body #container .title {
 body #container .box-S {
   width: 254px;
   height: 66px;
-  background-color: grey;
   margin: 0 0 33px 0;
 }
 
-body #container #box-m {
+body #container .box-S input {
+  width: 100%;
+}
+
+body #container .box-M {
+  margin: 0 0 33px 0;
+}
+
+body #container .box-M #box-m {
   padding: 0 0 0 20px;
+}
+
+body #container .box-L {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 0 33px 0;
+}
+
+body #container .box-L label {
+  width: 100px;
+}
+
+body #container .box-L #other {
+  width: 100%;
+}
+
+body #container .box-XL {
+  width: 254px;
+  margin: 0 0 33px 0;
+}
+
+body #container .box-XL #reply {
+  width: 100%;
+  border-radius: 10px;
+}
+
+body #container #send {
+  margin: 20px auto;
+  background-color: #5252ff;
+  color: white;
+  font-family: "微軟正黑體", "Noto Sans TC ";
+  border: 0;
+  width: 100px;
+  height: 28px;
 }
 /*# sourceMappingURL=source.css.map */
