@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表單標籤屬性實作練習</title>
+
+    <style>
+        .form-group {
+            margin: 15px 0;
+        }
+
+        .card {
+            width: 300px;
+            border: 1px solid darkgray;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        hr {
+            margin: 30px 0;
+        }
+
+        .content {
+            padding-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>數位留言板</h3>
+    <form method="POST" action="https://ajax-lesson.digipack-develop.com/news">
+        <div class="form-group">
+            <label for="">標題</label>
+            <input name="title" type="text">
+        </div>
+        <div class="form-group">
+            <label for="">內容</label>
+            <textarea name="content" id="" cols="30" rows="10" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="">日期</label>
+            <input id="date" name="date" type="date" required>
+        </div>
+        <div class="form-group">
+            <label for="">圖片</label>
+            <input name="image_url" type="text" required>
+        </div>
+
+        <div class="form-group">
+            <label for="">其他網址連結(非必填)</label>
+            <input name="href" type="text">
+        </div>
+
+        <button>送出</button>
+    </form>
+    <hr>
+
+    <div id="cards" class="cards">
+
+        <!-- <div class="card">
+            <a
+                href="https://images.theconversation.com/files/350865/original/file-20200803-24-50u91u.jpg?ixlib=rb-1.1.0&rect=37%2C29%2C4955%2C3293&q=45&auto=format&w=926&fit=clip">
+                <h3 class="title">標題</h3>
+                <div class="content">內文內文內文內文內文內文</div>
+                <img width="100%"
+                    src="https://images.theconversation.com/files/350865/original/file-20200803-24-50u91u.jpg?ixlib=rb-1.1.0&rect=37%2C29%2C4955%2C3293&q=45&auto=format&w=926&fit=clip"
+                    alt="">
+                <div>2020.09.23</div>
+            </a>
+        </div>
+        <div class="card">
+            <a
+                href="https://images.theconversation.com/files/350865/original/file-20200803-24-50u91u.jpg?ixlib=rb-1.1.0&rect=37%2C29%2C4955%2C3293&q=45&auto=format&w=926&fit=clip">
+                <h3 class="title">標題</h3>
+                <div class="content">內文內文內文內文內文內文</div> -->
+        <!-- <img width="100%"
+                    src="https://images.theconversation.com/files/350865/original/file-20200803-24-50u91u.jpg?ixlib=rb-1.1.0&rect=37%2C29%2C4955%2C3293&q=45&auto=format&w=926&fit=clip"
+                    alt="">
+                <div>2020.09.23</div>
+            </a>
+        </div> -->
+    </div>
+
+    <!-- AJAX來自JQuery ,要先匯入 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script>
+
+        // 指定資料型態
+        var date = document.querySelector('#date');
+
+        var time = new Date();
+        //Date = 建立時間的建構子,要先宣告建立才能夠取得時間
+
+        var current_date = time.getFullYear() + '-' + (time.getMonth() + 1) + '-' + time.getDate()
+        //建構子抓取時間都是透過function,抓取到的資料型態都是"數字",一定要和字串相加
+        // getmonth()取得的數字是0 ~ 11(共12個月),需要額外+1才會得到正確月份
+
+        date.value = current_date; //將今天日期的格式放入input中
+
+
+        fetch('https://ajax-lesson.digipack-develop.com/news')
+            //以json匯入
+            .then(function (reponse) {
+                return reponse.json();
+            })
+            .then(function (posts) {
+                console.log(posts);
+                //檢驗連接 
+                console.log(posts[0].title);
+
+                let boards = document.querySelector("#cards")
+
+                // 檢驗宣告
+                console.log(boards);
+
+
+
+                // 宣告所需元素
+                for (let i = posts.length - 1; i > posts.length - 20; i--) {
+                    const board = posts[i];
+
+
+                    let title = board.title
+                    let date = board.date
+                    let content = board.content
+                    let href = board.href
+                    let image_url = board.image_url
+
+                    boards.innerHTML += `
+                <div class="card">
+            <a
+                href="${image_url}">
+                <h3 class="title">${title}</h3>
+                <div class="content">${content}</div>
+                <img width="100%"
+                    src="${image_url}"
+                    alt="">
+                <div>${date}</div>
+            </a>
+        </div>`
+
+
+
+                }
+
+
+            })
+            // 送入laravel後臺的憑證
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        function send() {
+        // 透過JS把表單內容送到指定網址
+            $.ajax({
+                method: 'POST', //等於form標籤的method
+                url: 'https://ajax-lesson.digipack-develop.com/news', 
+                data: { 
+                    title: $('input[name="title"]').val(),
+                    content:$('textarea[name="content"]').val(),
+                    href:$('input[name="href"]').val(),
+                    date: current_date,
+                    image_url: $('input[name="image_url"]').val(),
+                },
+                success:function(posts){
+                    console.log(posts); 
+                }
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>

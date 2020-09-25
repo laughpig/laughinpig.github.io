@@ -25,27 +25,34 @@
         .content {
             padding-bottom: 30px;
         }
+
+        .btn {
+            display:inline-block;
+            padding: 10px 30px;
+            border: 1px solid black;
+        }
+        
     </style>
 </head>
 
 <body>
     <h3>數位留言板</h3>
-    <form method="POST" action="https://ajax-lesson.digipack-develop.com/news">
+    <form>
         <div class="form-group">
             <label for="">標題</label>
             <input name="title" type="text">
         </div>
         <div class="form-group">
             <label for="">內容</label>
-            <textarea name="content" id="" cols="30" rows="10" required></textarea>
+            <textarea name="content" id="" cols="30" rows="10"></textarea>
         </div>
         <div class="form-group">
             <label for="">日期</label>
-            <input id="date" name="date" type="date" required>
+            <input id="date" name="date" type="text">
         </div>
         <div class="form-group">
             <label for="">圖片</label>
-            <input name="image_url" type="text" required>
+            <input name="image_url" type="text">
         </div>
 
         <div class="form-group">
@@ -53,34 +60,15 @@
             <input name="href" type="text">
         </div>
 
-        <button>送出</button>
+        <!-- form表單裡面只要有button標籤 被點擊就會送出 然後重新整理畫面 -->
+        <div class="btn" onclick="send()">送出</div>
     </form>
+
     <hr>
 
-    <div id="cards" class="cards">
+    <div class="cards">
 
-        <!-- <div class="card">
-            <a
-                href="https://images.theconversation.com/files/350865/original/file-20200803-24-50u91u.jpg?ixlib=rb-1.1.0&rect=37%2C29%2C4955%2C3293&q=45&auto=format&w=926&fit=clip">
-                <h3 class="title">標題</h3>
-                <div class="content">內文內文內文內文內文內文</div>
-                <img width="100%"
-                    src="https://images.theconversation.com/files/350865/original/file-20200803-24-50u91u.jpg?ixlib=rb-1.1.0&rect=37%2C29%2C4955%2C3293&q=45&auto=format&w=926&fit=clip"
-                    alt="">
-                <div>2020.09.23</div>
-            </a>
-        </div>
-        <div class="card">
-            <a
-                href="https://images.theconversation.com/files/350865/original/file-20200803-24-50u91u.jpg?ixlib=rb-1.1.0&rect=37%2C29%2C4955%2C3293&q=45&auto=format&w=926&fit=clip">
-                <h3 class="title">標題</h3>
-                <div class="content">內文內文內文內文內文內文</div> -->
-                <!-- <img width="100%"
-                    src="https://images.theconversation.com/files/350865/original/file-20200803-24-50u91u.jpg?ixlib=rb-1.1.0&rect=37%2C29%2C4955%2C3293&q=45&auto=format&w=926&fit=clip"
-                    alt="">
-                <div>2020.09.23</div>
-            </a>
-        </div> --> 
+
     </div>
 
     <!-- AJAX來自JQuery ,要先匯入 -->
@@ -100,51 +88,61 @@
 
         date.value = current_date; //將今天日期的格式放入input中
 
-
         fetch('https://ajax-lesson.digipack-develop.com/news')
-            //以json匯入
-            .then(function (reponse) {
-                return reponse.json();
+            .then(function (response) {
+                return response.json();
             })
-            .then(function (posts) {
-                console.log(posts);
-                //檢驗連接 
-                console.log(posts[0].title);
+            .then(function (myJson) {
+                console.log(myJson);
+                // 處理陣列的方法
+                // forEach -> 處理陣列中所有資料
+                // for迴圈 -> 重複執行某段程式碼
+                var cards = document.querySelector('.cards');
 
-                let boards = document.querySelector("#cards")
-               
-                // 檢驗宣告
-                console.log(boards);
+                for (var i = myJson.length - 1; i > myJson.length - 20; i--) {
+                    cards.innerHTML += `
+                    <div class="card">
+                        <a href="${myJson[i].href}">
+                            <h3 class="title">${myJson[i].title}</h3>
+                            <div class="content">${myJson[i].content}</div>
+                            <img width="100%"
+                                src="${myJson[i].image_url}"
+                                alt="">
+                            <div>${myJson[i].date}</div>
+                        </a>
+                    </div>
+                    `
+                }
 
-
-
-                // 宣告所需元素
-                posts.forEach(board => {
-                    let title = board.title
-                    let date = board.date
-                    let content = board.content
-                    let href = board.href
-                    let image_url = board.image_url
-
-                boards.innerHTML +=`
-                <div class="card">
-            <a
-                href="${href}">
-                <h3 class="title">${title}</h3>
-                <div class="content">${content}</div>
-                <img width="100%"
-                    src="${image_url}"
-                    alt="">
-                <div>${date}</div>
-            </a>
-        </div>`
+            });
 
 
+        // 送入laravel後臺的憑證
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
-                })
+        function send() {
+        // 透過JS把表單內容送到指定網址
+            $.ajax({
+                method: 'POST', //等於form標籤的method
+                url: 'https://ajax-lesson.digipack-develop.com/news', //等於form標籤的action
+                data: { //data = 表單中的input物件化
+                    title: $('input[name="title"]').val(), //name: value
+                    content:$('textarea[name="content"]').val(),
+                    href:$('input[name="href"]').val(),
+                    date: current_date,
+                    image_url: $('input[name="image_url"]').val(),
+                },
+                success:function(result){
+                    console.log(result); //伺服器端回傳的資料 被宣告成的變數名稱
+                }
+            });
+        }
 
 
-            })
 
     </script>
 
